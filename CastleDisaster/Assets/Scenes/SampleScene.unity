@@ -3241,7 +3241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c806e299c9cddc849826c695c747a685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources: 0
+  resources: 20
   resourcesText: {fileID: 2093419403}
 --- !u!4 &1419994629
 Transform:
@@ -3504,7 +3504,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -5597,10 +5597,10 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1559491689}
   - {fileID: 1507968422}
+  - {fileID: 1419994629}
   - {fileID: 1670869745}
   - {fileID: 782767083}
   - {fileID: 240886782}
   - {fileID: 568039287}
-  - {fileID: 1419994629}
   - {fileID: 1490951011}
   - {fileID: 8451820745616345338}

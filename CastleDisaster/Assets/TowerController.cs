@@ -6,7 +6,7 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     [SerializeField] float attackSpeed, attackDistance, attackDamage;
-    [SerializeField] UnitController target;
+    UnitController target;
     float currentTime;
 
     [SerializeField] GameObject projectilePrefab;

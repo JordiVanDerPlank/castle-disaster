@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum UnitType
@@ -19,6 +20,11 @@ public class UnitController : MonoBehaviour
 
     private void Update()
     {
+        if (target == null)
+        {
+            FindTarget();
+        }
+
         if (currentTime >= attackSpeed && target != null)
         {
             //target.TakeDamage(attackDamage);
@@ -40,5 +46,15 @@ public class UnitController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void FindTarget()
+    {
+        List<GridObject> buildings = FindObjectsOfType<GridObject>().ToList();
+
+        if (buildings.Count <= 0)
+            return;
+
+        target = buildings.OrderBy(building => Vector3.Distance(transform.position, building.transform.position)).First();
     }
 }

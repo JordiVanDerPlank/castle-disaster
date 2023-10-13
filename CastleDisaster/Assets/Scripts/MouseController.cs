@@ -26,6 +26,8 @@ public class MouseController : MonoBehaviour
         selectedPrefabCost = cost;
     }
 
+    GameObject foundBuildSpot;
+
     // Update is called once per frame
     void Update()
     {
@@ -34,15 +36,23 @@ public class MouseController : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
         {
-            print(hit.collider.gameObject.name);
+            //print(hit.collider.gameObject.name);
             coordinates = hit.collider.transform.position;
+            return;
 
             placementCoordinates = new Vector3((int)coordinates.x, (int)coordinates.y + 1, (int)coordinates.z);
 
-            if (IsPointerOverUIObject())
+            if (IsPointerOverUIObject() || hit.collider.gameObject.tag != "BuildSpot")
+            {
+                if (foundBuildSpot != null)
+                    foundBuildSpot.GetComponent<BuildSpotController>().HidePreview();
+                foundBuildSpot = null;
                 return;
+            }
 
-            ShowPreview();
+            print(foundBuildSpot.name);
+            foundBuildSpot = hit.collider.gameObject;
+            ShowPreview(foundBuildSpot.GetComponent<BuildSpotController>());
 
             BuildObject();
 
@@ -55,12 +65,14 @@ public class MouseController : MonoBehaviour
         }
     }
 
-    void ShowPreview()
+    void ShowPreview(BuildSpotController _foundBuildSpotController)
     {
-        previewCube.gameObject.SetActive(true);
-        while (GridController.Instance.IsPositionTaken(placementCoordinates))
-            placementCoordinates = new Vector3(placementCoordinates.x, placementCoordinates.y + 1, placementCoordinates.z);
-        previewCube.position = placementCoordinates;
+        //previewCube.gameObject.SetActive(true);
+        //while (GridController.Instance.IsPositionTaken(placementCoordinates))
+        //    placementCoordinates = new Vector3(placementCoordinates.x, placementCoordinates.y + 1, placementCoordinates.z);
+        //previewCube.position = placementCoordinates;
+
+        _foundBuildSpotController.ShowPreview();
     }
 
     void HidePreview()

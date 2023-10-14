@@ -8,6 +8,7 @@ public class EnemySpawnController : MonoBehaviour
     public void PressSpawnEnemiesButton(int amount)
     {
         amountToSpawn = amount;
+        StartCoroutine(SpawnEnemies());
     }
 
     [SerializeField] GameObject enemyPrefab;

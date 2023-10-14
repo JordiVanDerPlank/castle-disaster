@@ -6,23 +6,27 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     [SerializeField] float attackSpeed, attackDistance, attackDamage;
-    UnitController target;
+    [SerializeField] UnitController target;
     float currentTime;
 
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] Transform projectileSpawnPosition;
 
     private void Update()
     {
         if (target == null)
         {
             FindTarget();
+            return;
         }
+
+        Debug.DrawRay(transform.position, target.transform.position);
 
         if (currentTime >= attackSpeed && target != null)
         {
             //target.TakeDamage(attackDamage);
-            ProjectileController _newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<ProjectileController>();
-            _newProjectile.SetProjectileData(attackDamage, gameObject);
+            ProjectileController _newProjectile = Instantiate(projectilePrefab, projectileSpawnPosition.position, Quaternion.identity).GetComponent<ProjectileController>();
+            _newProjectile.SetProjectileData(attackDamage, gameObject, GetRequiredShootForce());
             _newProjectile.SetTargetPosition(target.transform.position);
             currentTime = 0;
         }
@@ -38,5 +42,10 @@ public class TowerController : MonoBehaviour
             return;
 
         target = enemies.OrderBy(enemy => Vector3.Distance(transform.position, enemy.transform.position)).First();
+    }
+
+    float GetRequiredShootForce()
+    {
+        return Vector3.Distance(transform.position, target.transform.position);
     }
 }

@@ -101,7 +101,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 1596603882293692979, guid: 4d893144d9c4e39418590d70017add18,
         type: 3}
       propertyPath: m_Name
-      value: Tower_Blank Variant
+      value: Tower_Archer
       objectReference: {fileID: 0}
     - target: {fileID: 7783512499965913785, guid: 4d893144d9c4e39418590d70017add18,
         type: 3}
@@ -175,7 +175,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1285294277533275028}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1596603882293692979, guid: 4d893144d9c4e39418590d70017add18,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1136747417226575600}
   m_SourcePrefab: {fileID: 100100000, guid: 4d893144d9c4e39418590d70017add18, type: 3}
 --- !u!4 &1362113639359170877 stripped
 Transform:
@@ -183,3 +187,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9143332272419644292}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7551378272681994679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1596603882293692979, guid: 4d893144d9c4e39418590d70017add18,
+    type: 3}
+  m_PrefabInstance: {fileID: 9143332272419644292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136747417226575600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551378272681994679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8624ed47f827007409363fc685ae2fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 2
+  attackDistance: 0
+  attackDamage: 1
+  projectilePrefab: {fileID: 686789203994024268, guid: e81aa78c4b7f05b4aa515d36869103ed,
+    type: 3}
+  projectileSpawnPosition: {fileID: 1285294277533275028}

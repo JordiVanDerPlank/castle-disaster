@@ -22,6 +22,11 @@ public class UnitController : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform kingTower;
 
+    private void Awake()
+    {
+        kingTower = GameObject.Find("Tower_King").transform;
+    }
+
     private void Update()
     {
         agent.SetDestination(kingTower.position);
@@ -36,7 +41,7 @@ public class UnitController : MonoBehaviour
         {
             //target.TakeDamage(attackDamage);
             ProjectileController _newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<ProjectileController>();
-            _newProjectile.SetProjectileData(attackDamage, gameObject);
+            _newProjectile.SetProjectileData(attackDamage, gameObject, GetShootForce());
             _newProjectile.SetTargetPosition(target.transform.position);
             currentTime = 0;
         }
@@ -63,5 +68,10 @@ public class UnitController : MonoBehaviour
             return;
 
         target = buildings.OrderBy(building => Vector3.Distance(transform.position, building.transform.position)).First();
+    }
+
+    float GetShootForce()
+    {
+        return Vector3.Distance(transform.position, target.transform.position);
     }
 }

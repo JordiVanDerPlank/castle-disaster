@@ -11,14 +11,15 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] Vector3 targetPosition;
     Vector3 dir;
-    [SerializeField] float shootForce = 10;
+    [SerializeField] float shootForce = 30;
     float damage;
     [SerializeField] GameObject originGameObject;
 
-    public void SetProjectileData(float damage, GameObject originGameObject)
+    public void SetProjectileData(float damage, GameObject originGameObject, float shootForce)
     {
         this.damage = damage;
         this.originGameObject = originGameObject;
+        this.shootForce = shootForce;
     }
 
     public void SetTargetPosition(Vector3 position)

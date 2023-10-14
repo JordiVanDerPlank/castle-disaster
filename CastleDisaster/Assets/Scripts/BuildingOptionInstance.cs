@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BuildingOptionInstance : MonoBehaviour
 {
     [SerializeField] GameObject gameObjectPrefab;
+    [SerializeField] BuildingType buildingType;
     [SerializeField] int cost;
     Button button;
 
@@ -21,6 +22,6 @@ public class BuildingOptionInstance : MonoBehaviour
 
     public void SelectPrefab()
     {
-        InventoryController.Instance.SetSelectedItem(gameObjectPrefab, cost);
+        InventoryController.Instance.SetSelectedItem(gameObjectPrefab, buildingType, cost);
     }
 }

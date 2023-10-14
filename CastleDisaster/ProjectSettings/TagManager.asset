@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Building
   - Unit
-  - BuildSpot
+  - BuildingBuildspot
+  - UnitsBuildspot
   layers:
   - Default
   - TransparentFX

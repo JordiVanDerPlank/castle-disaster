@@ -45,8 +45,8 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    public void SetSelectedItem(GameObject prefab, int cost)
+    public void SetSelectedItem(GameObject prefab, BuildingType buildingType, int cost)
     {
-        MouseController.Instance.SetSelectedPrefab(prefab, cost);
+        MouseController.Instance.SetSelectedPrefab(prefab, buildingType, cost);
     }
 }

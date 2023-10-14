@@ -9,6 +9,7 @@ public class MouseController : MonoBehaviour
     public static MouseController Instance;
 
     [SerializeField] GameObject selectedPrefab;
+    BuildingType selectedPrefabBuildingType;
     int selectedPrefabCost;
     [SerializeField] Transform previewCube;
     Camera _camera;
@@ -20,13 +21,12 @@ public class MouseController : MonoBehaviour
         Instance = this;
     }
 
-    public void SetSelectedPrefab(GameObject prefab, int cost)
+    public void SetSelectedPrefab(GameObject prefab, BuildingType buildingType, int cost)
     {
         selectedPrefab = prefab;
+        selectedPrefabBuildingType = buildingType;
         selectedPrefabCost = cost;
     }
-
-    GameObject foundBuildSpot;
 
     // Update is called once per frame
     void Update()
@@ -36,48 +36,33 @@ public class MouseController : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
         {
-            //print(hit.collider.gameObject.name);
+            print(hit.collider.gameObject.tag);
             coordinates = hit.collider.transform.position;
-            return;
+            placementCoordinates = new Vector3((int)coordinates.x, (int)coordinates.y + 7.5f, (int)coordinates.z);
 
-            placementCoordinates = new Vector3((int)coordinates.x, (int)coordinates.y + 1, (int)coordinates.z);
-
-            if (IsPointerOverUIObject() || hit.collider.gameObject.tag != "BuildSpot")
+            if (IsPointerOverUIObject() || (hit.collider.gameObject.tag != "BuildingBuildspot" && hit.collider.gameObject.tag != "UnitsBuildspot"))
             {
-                if (foundBuildSpot != null)
-                    foundBuildSpot.GetComponent<BuildSpotController>().HidePreview();
-                foundBuildSpot = null;
                 return;
             }
 
-            print(foundBuildSpot.name);
-            foundBuildSpot = hit.collider.gameObject;
-            ShowPreview(foundBuildSpot.GetComponent<BuildSpotController>());
+            if (selectedPrefabBuildingType == BuildingType.building && hit.collider.gameObject.tag != "BuildingBuildspot" || (selectedPrefabBuildingType == BuildingType.unit && hit.collider.gameObject.tag != "UnitsBuildspot"))
+                return;
+
+            ShowPreview();
 
             BuildObject();
 
             DestroyObject();
         }
-
-        else
-        {
-            HidePreview();
-        }
     }
 
-    void ShowPreview(BuildSpotController _foundBuildSpotController)
+    void ShowPreview()
     {
-        //previewCube.gameObject.SetActive(true);
-        //while (GridController.Instance.IsPositionTaken(placementCoordinates))
-        //    placementCoordinates = new Vector3(placementCoordinates.x, placementCoordinates.y + 1, placementCoordinates.z);
-        //previewCube.position = placementCoordinates;
-
-        _foundBuildSpotController.ShowPreview();
-    }
-
-    void HidePreview()
-    {
-        previewCube.gameObject.SetActive(false);
+        print("here");
+        previewCube.gameObject.SetActive(true);
+        while (GridController.Instance.IsPositionTaken(placementCoordinates))
+            placementCoordinates = new Vector3(placementCoordinates.x, placementCoordinates.y + 7.5f, placementCoordinates.z);
+        previewCube.position = placementCoordinates;
     }
 
     void BuildObject()
@@ -87,9 +72,10 @@ public class MouseController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !GridController.Instance.IsPositionTaken(placementCoordinates))
         {
-            GameObject _newBuilding = Instantiate(selectedPrefab, placementCoordinates, Quaternion.identity);
+            GameObject _newBuilding = Instantiate(selectedPrefab, new Vector3(placementCoordinates.x, placementCoordinates.y - 2.5f, placementCoordinates.z), Quaternion.identity);
             GridController.Instance.AddToPositionTaken(_newBuilding, placementCoordinates);
             InventoryController.Instance.RemoveResources(selectedPrefabCost);
+            previewCube.gameObject.SetActive(false);
         }
     }
 

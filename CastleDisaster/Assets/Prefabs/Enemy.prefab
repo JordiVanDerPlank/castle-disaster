@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9073028073116720274}
@@ -45,12 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbdf5d1564174445a888f4d237992f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 1
   attackSpeed: 3
   attackDistance: 0
   attackDamage: 1
-  projectileSpeed: 5
-  yPosOffset: 2
   target: {fileID: 0}
   projectilePrefab: {fileID: 686789203994024268, guid: e81aa78c4b7f05b4aa515d36869103ed,
     type: 3}

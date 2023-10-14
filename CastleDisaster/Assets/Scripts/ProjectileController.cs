@@ -24,7 +24,7 @@ public class ProjectileController : MonoBehaviour
     public void SetTargetPosition(Vector3 position)
     {
         int yPosOffset = (int)Vector3.Distance(originGameObject.transform.position, targetPosition);
-        targetPosition = new Vector3(position.x, position.y, position.z);
+        targetPosition = new Vector3(position.x, position.y + 7.5f, position.z);
     }
 
     private void Start()

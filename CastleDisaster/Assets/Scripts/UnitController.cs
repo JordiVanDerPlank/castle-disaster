@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum UnitType
 {
@@ -18,8 +19,14 @@ public class UnitController : MonoBehaviour
 
     [SerializeField] GameObject projectilePrefab;
 
+    [SerializeField] NavMeshAgent agent;
+    [SerializeField] Transform kingTower;
+
     private void Update()
     {
+        agent.SetDestination(kingTower.position);
+        //agent.Move(Vector3.zero);
+        return;
         if (target == null)
         {
             FindTarget();

@@ -2760,7 +2760,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.7
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -13373,7 +13373,7 @@ PrefabInstance:
     - target: {fileID: 4275152153967933169, guid: 2e84eb582347c524db99feae28da5200,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13673,7 +13673,7 @@ PrefabInstance:
     - target: {fileID: 2164991198739878897, guid: f91026e506ef9114cb9c7307d18c8399,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2164991198739878897, guid: f91026e506ef9114cb9c7307d18c8399,
         type: 3}

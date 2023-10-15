@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17876491, g: 0.22383898, b: 0.30574316, a: 1}
+  m_IndirectSpecularColor: {r: 0.1787631, g: 0.22383647, b: 0.3057417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10080,8 +10080,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedPrefab: {fileID: 0}
   previewCube: {fileID: 1670869745}
-  coordinates: {x: 0, y: 0, z: 0}
-  placementCoordinates: {x: 0, y: 0, z: 0}
+  previewYOffset: 7.5
+  placementYOffset: 7.5
 --- !u!1001 &1513333481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10893,7 +10893,7 @@ Transform:
   m_GameObject: {fileID: 1670869741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.81, y: 1, z: -2}
+  m_LocalPosition: {x: -5, y: 10, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []

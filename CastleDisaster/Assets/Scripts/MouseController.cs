@@ -13,7 +13,8 @@ public class MouseController : MonoBehaviour
     int selectedPrefabCost;
     [SerializeField] Transform previewCube;
     Camera _camera;
-    [SerializeField] Vector3 coordinates, placementCoordinates;
+    Vector3 coordinates, placementCoordinates;
+    [SerializeField] float previewYOffset, placementYOffset;
 
     private void Awake()
     {
@@ -38,7 +39,7 @@ public class MouseController : MonoBehaviour
         {
             print(hit.collider.gameObject.tag);
             coordinates = hit.collider.transform.position;
-            placementCoordinates = new Vector3((int)coordinates.x, (int)coordinates.y + 7.5f, (int)coordinates.z);
+            placementCoordinates = new Vector3((int)coordinates.x, (int)coordinates.y + previewYOffset, (int)coordinates.z);
 
             if (IsPointerOverUIObject() || (hit.collider.gameObject.tag != "BuildingBuildspot" && hit.collider.gameObject.tag != "UnitsBuildspot"))
             {
@@ -61,7 +62,7 @@ public class MouseController : MonoBehaviour
         print("here");
         previewCube.gameObject.SetActive(true);
         while (GridController.Instance.IsPositionTaken(placementCoordinates))
-            placementCoordinates = new Vector3(placementCoordinates.x, placementCoordinates.y + 7.5f, placementCoordinates.z);
+            placementCoordinates = new Vector3(placementCoordinates.x, placementCoordinates.y + previewYOffset, placementCoordinates.z);
         previewCube.position = placementCoordinates;
     }
 
@@ -72,7 +73,7 @@ public class MouseController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !GridController.Instance.IsPositionTaken(placementCoordinates))
         {
-            GameObject _newBuilding = Instantiate(selectedPrefab, new Vector3(placementCoordinates.x, placementCoordinates.y - 2.5f, placementCoordinates.z), Quaternion.identity);
+            GameObject _newBuilding = Instantiate(selectedPrefab, new Vector3(placementCoordinates.x, placementYOffset, placementCoordinates.z), Quaternion.identity);
             GridController.Instance.AddToPositionTaken(_newBuilding, placementCoordinates);
             InventoryController.Instance.RemoveResources(selectedPrefabCost);
             previewCube.gameObject.SetActive(false);

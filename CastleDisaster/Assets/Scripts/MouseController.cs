@@ -37,7 +37,6 @@ public class MouseController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
         {
             coordinates = hit.collider.transform.position;
-            print("Global: " + coordinates);
             placementCoordinates = new Vector3(coordinates.x, coordinates.y + previewYOffset, coordinates.z);
 
             if (IsPointerOverUIObject() || (hit.collider.gameObject.tag != "BuildingBuildspot" && hit.collider.gameObject.tag != "UnitsBuildspot"))

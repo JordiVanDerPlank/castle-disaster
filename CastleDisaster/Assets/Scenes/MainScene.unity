@@ -2828,6 +2828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192709105}
+  - component: {fileID: 192709106}
   m_Layer: 0
   m_Name: RTS_CameraController
   m_TagString: Untagged
@@ -2843,14 +2844,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192709104}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25429285, y: 0.36810985, z: -0.1063575, w: 0.8879856}
-  m_LocalPosition: {x: -108, y: 44, z: -257}
+  m_LocalRotation: {x: -0.39044833, y: 0.34682897, z: 0.161729, w: 0.8373192}
+  m_LocalPosition: {x: 57.5, y: 0, z: -94.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2039543986}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 32, y: 45, z: -0.113}
+  m_LocalEulerAnglesHint: {x: -50, y: 45, z: 0}
+--- !u!114 &192709106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192709104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839650b223e59e349bc0944bb6229a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 50
+  minXRot: -85
+  maxXRot: -10
+  curXRot: -5
+  minZoom: 100
+  maxZoom: 300
+  zoomSpeed: 75
+  rotateSpeed: 3
 --- !u!1 &195845737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4891847200705178999, guid: 2e84eb582347c524db99feae28da5200,
@@ -27474,7 +27495,6 @@ GameObject:
   - component: {fileID: 2039543985}
   - component: {fileID: 2039543984}
   - component: {fileID: 2039543983}
-  - component: {fileID: 2039543987}
   m_Layer: 0
   m_Name: RTS_Camera
   m_TagString: MainCamera
@@ -27593,36 +27613,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039543981}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.94, y: 100.6, z: -146.34}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 300, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192709105}
-  m_LocalEulerAnglesHint: {x: 31.9, y: 45, z: -0.113}
---- !u!114 &2039543987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039543981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 839650b223e59e349bc0944bb6229a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minFieldOfView: 10
-  maxFieldOfView: 45
-  zoomValue: 30
-  zoomSpeed: 15
-  mainCameraCenterPoint: {fileID: 192709105}
-  camRotationSpeed: 10
-  canRotate: 0
-  currentPos: {x: 0, y: 0, z: 0}
-  deltaPos: {x: 0, y: 0, z: 0}
-  lastPos: {x: 0, y: 0, z: 0}
-  moveSpeed: 50
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &2040849921
 PrefabInstance:
   m_ObjectHideFlags: 0

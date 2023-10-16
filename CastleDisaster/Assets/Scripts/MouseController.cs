@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,10 +10,10 @@ public class MouseController : MonoBehaviour
     [SerializeField] GameObject selectedPrefab;
     BuildingType selectedPrefabBuildingType;
     int selectedPrefabCost;
-    [SerializeField] Transform previewCube;
+    [SerializeField] Transform previewCube, previewCubeSpawnpoint;
     Camera _camera;
-    Vector3 coordinates, placementCoordinates;
-    [SerializeField] float previewYOffset, placementYOffset;
+    [SerializeField] Vector3 coordinates, placementCoordinates;
+    [SerializeField] float previewYOffset;
 
     private void Awake()
     {
@@ -37,9 +36,9 @@ public class MouseController : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
         {
-            print(hit.collider.gameObject.tag);
             coordinates = hit.collider.transform.position;
-            placementCoordinates = new Vector3((int)coordinates.x, (int)coordinates.y + previewYOffset, (int)coordinates.z);
+            print("Global: " + coordinates);
+            placementCoordinates = new Vector3(coordinates.x, coordinates.y + previewYOffset, coordinates.z);
 
             if (IsPointerOverUIObject() || (hit.collider.gameObject.tag != "BuildingBuildspot" && hit.collider.gameObject.tag != "UnitsBuildspot"))
             {
@@ -73,7 +72,7 @@ public class MouseController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !GridController.Instance.IsPositionTaken(placementCoordinates))
         {
-            GameObject _newBuilding = Instantiate(selectedPrefab, new Vector3(placementCoordinates.x, placementYOffset, placementCoordinates.z), Quaternion.identity);
+            GameObject _newBuilding = Instantiate(selectedPrefab, previewCubeSpawnpoint.position, Quaternion.identity);
             GridController.Instance.AddToPositionTaken(_newBuilding, placementCoordinates);
             InventoryController.Instance.RemoveResources(selectedPrefabCost);
             previewCube.gameObject.SetActive(false);

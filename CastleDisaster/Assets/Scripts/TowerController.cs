@@ -20,8 +20,6 @@ public class TowerController : MonoBehaviour
             return;
         }
 
-        Debug.DrawRay(transform.position, target.transform.position);
-
         if (currentTime >= attackSpeed && target != null)
         {
             //target.TakeDamage(attackDamage);
@@ -43,6 +41,8 @@ public class TowerController : MonoBehaviour
             return;
 
         target = enemies.OrderBy(enemy => Vector3.Distance(transform.position, enemy.transform.position)).First();
+        if (Vector3.Distance(transform.position, target.transform.position) > attackDistance)
+            target = null;
     }
 
     float GetRequiredShootForce()

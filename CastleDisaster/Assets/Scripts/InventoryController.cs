@@ -7,14 +7,22 @@ public class InventoryController : MonoBehaviour
 {
     public static InventoryController Instance;
 
+    [SerializeField] bool testMode;
+
     private void Awake()
     {
         Instance = this;
+
+        if (testMode)
+            resourcesText.enabled = false;
     }
 
     
     private void Update()
     {
+        if (testMode)
+            return;
+
         resourcesText.text = "Gold: " + resources.ToString(); 
     }
 
@@ -27,7 +35,7 @@ public class InventoryController : MonoBehaviour
 
     public bool HasEnoughResources(int required)
     {
-        return resources >= required;
+        return testMode ? true : resources >= required;
     }
 
     public void AddResources(int amount)
@@ -37,6 +45,9 @@ public class InventoryController : MonoBehaviour
 
     public void RemoveResources(int amount)
     {
+        if (testMode)
+            return;
+
         resources -= amount;
         if (resources < 0)
         {

@@ -20446,6 +20446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c806e299c9cddc849826c695c747a685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 1
   resources: 20
   resourcesText: {fileID: 2093419403}
 --- !u!4 &1419994629

@@ -206,8 +206,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 2
-  attackDistance: 0
+  attackDistance: 25
   attackDamage: 1
+  target: {fileID: 0}
   projectilePrefab: {fileID: 686789203994024268, guid: e81aa78c4b7f05b4aa515d36869103ed,
     type: 3}
   projectileSpawnPosition: {fileID: 1285294277533275028}

@@ -9,31 +9,14 @@ using static UnityEngine.GraphicsBuffer;
 public class ProjectileController : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
-    [SerializeField] Vector3 targetPosition;
-    Vector3 dir;
-    [SerializeField] float shootForce = 30;
     float damage;
     [SerializeField] GameObject originGameObject;
 
-    public void SetProjectileData(float damage, GameObject originGameObject, float shootForce)
+    public void SetProjectileData(float damage, GameObject originGameObject)
     {
         this.damage = damage;
         this.originGameObject = originGameObject;
-        this.shootForce = shootForce;
     }
-
-    public void SetTargetPosition(Vector3 position)
-    {
-        int yPosOffset = (int)Vector3.Distance(originGameObject.transform.position, targetPosition);
-        targetPosition = new Vector3(position.x, position.y + 7.5f, position.z);
-    }
-
-    private void Start()
-    {
-        dir = (targetPosition - transform.position).normalized;
-        rb.velocity = dir * shootForce;
-    }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,6 +27,8 @@ public class ProjectileController : MonoBehaviour
 
         if (other.gameObject.tag == "Building")
         {
+            if (originGameObject.tag == "Building")
+                return;
             other.gameObject.GetComponent<GridObject>().TakeDamage(damage);
             transform.parent = other.transform;
             rb.isKinematic = true;
@@ -54,6 +39,26 @@ public class ProjectileController : MonoBehaviour
             print("hit unit!");
             other.transform.root.GetComponent<UnitController>().TakeDamage(damage);
             Destroy(gameObject);
-        }        
+        }
+    }
+
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
+    }
+
+    Transform target;
+    [SerializeField] float projectileSpeed;
+
+    private void Update()
+    {
+        try
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            Vector3 velocity = direction * projectileSpeed;
+            rb.velocity = velocity;
+            transform.LookAt(target);
+        }
+        catch { }
     }
 }

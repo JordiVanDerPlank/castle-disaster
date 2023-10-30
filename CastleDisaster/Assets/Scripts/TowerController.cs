@@ -26,8 +26,9 @@ public class TowerController : MonoBehaviour
         {
             //target.TakeDamage(attackDamage);
             ProjectileController _newProjectile = Instantiate(projectilePrefab, projectileSpawnPosition.position, Quaternion.identity).GetComponent<ProjectileController>();
-            _newProjectile.SetProjectileData(attackDamage, gameObject, GetRequiredShootForce());
-            _newProjectile.SetTargetPosition(target.transform.position);
+            _newProjectile.SetProjectileData(attackDamage, gameObject);
+            //_newProjectile.SetTargetPosition(target.transform.position);
+            _newProjectile.SetTarget(target.transform);
             currentTime = 0;
         }
 

@@ -42,8 +42,8 @@ public class UnitController : MonoBehaviour
         {
             //target.TakeDamage(attackDamage);
             ProjectileController _newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<ProjectileController>();
-            _newProjectile.SetProjectileData(attackDamage, gameObject, GetShootForce());
-            _newProjectile.SetTargetPosition(target.transform.position);
+            //_newProjectile.SetProjectileData(attackDamage, gameObject, GetShootForce());
+            //_newProjectile.SetTargetPosition(target.transform.position);
             currentTime = 0;
         }
 
@@ -54,6 +54,7 @@ public class UnitController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        print("test");
         health -= damage;
         if (health <= 0)
         {

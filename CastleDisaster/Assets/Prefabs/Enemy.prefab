@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1787247117792899763}
   - component: {fileID: 4771561038981250029}
   - component: {fileID: 6268923378612470106}
+  - component: {fileID: 8189287000446126892}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Unit
@@ -55,7 +56,7 @@ MonoBehaviour:
     type: 3}
   agent: {fileID: 6268923378612470106}
   kingTower: {fileID: 0}
-  health: 1
+  health: 5
 --- !u!195 &6268923378612470106
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -78,6 +79,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &8189287000446126892
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111296038279875020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.99538
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.83799237, z: 0}
 --- !u!1 &1696306750435512276
 GameObject:
   m_ObjectHideFlags: 0

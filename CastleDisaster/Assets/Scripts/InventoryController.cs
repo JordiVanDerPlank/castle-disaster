@@ -15,7 +15,7 @@ public class InventoryController : MonoBehaviour
     
     private void Update()
     {
-        resourcesText.text = "Resources: " + resources.ToString(); 
+        resourcesText.text = "Gold: " + resources.ToString(); 
     }
 
     [SerializeField] int resources;

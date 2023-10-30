@@ -69,7 +69,7 @@ public class MouseController : MonoBehaviour
         if (selectedPrefab == null)
             return;
 
-        if (Input.GetMouseButtonDown(0) && !GridController.Instance.IsPositionTaken(placementCoordinates))
+        if (Input.GetMouseButtonDown(0) && !GridController.Instance.IsPositionTaken(placementCoordinates) && InventoryController.Instance.HasEnoughResources(selectedPrefabCost))
         {
             GameObject _newBuilding = Instantiate(selectedPrefab, previewCubeSpawnpoint.position, Quaternion.identity);
             GridController.Instance.AddToPositionTaken(_newBuilding, placementCoordinates);

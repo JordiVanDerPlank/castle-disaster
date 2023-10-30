@@ -29,7 +29,8 @@ public class UnitController : MonoBehaviour
 
     private void Update()
     {
-        agent.SetDestination(kingTower.position);
+        agent.destination = kingTower.position;
+        //agent.SetDestination(kingTower.position);
         //agent.Move(Vector3.zero);
         return;
         if (target == null)

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Track_Switch
+  - Crossing
+  - Signaling
+  - Waypoint
+  - Train
+  - IgnoreMainTexture
   layers:
   - Default
   - TransparentFX
@@ -11,25 +17,25 @@ TagManager:
   - 
   - Water
   - UI
+  - GridLayer0
+  - GridLayer1
+  - GridLayer2
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Object
+  - GridLayer3
+  - FreeformObject
+  - FreeformObjectCollision
+  - Interactable
+  - Detector
+  - Waypoint
+  - Train
+  - GridLayer4
+  - GridLayer5
+  - GridLayer6
+  - GridLayer7
+  - GridLayer8
+  - GridLayer9
+  - PlacementBlocker
   - 
   - 
   - 

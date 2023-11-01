@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.61232466, g: 0.6589119, b: 0.57263154, a: 1}
+  m_IndirectSpecularColor: {r: 0.3751911, g: 0.39598656, b: 0.3178332, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -240,7 +240,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2164991198739878897, guid: f91026e506ef9114cb9c7307d18c8399, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2164991198739878897, guid: f91026e506ef9114cb9c7307d18c8399, type: 3}
       propertyPath: m_LocalPosition.x
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: 0
+  m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -436,6 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090301771}
+  - component: {fileID: 1090301772}
   m_Layer: 0
   m_Name: CameraRig
   m_TagString: Untagged
@@ -458,6 +459,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1090301772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090301770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38dd86bfda6c11b4e9bc24d1df4bc194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 963194228}
+  startPositionOffset: {x: 15, y: 0, z: -10}
+  delay: 0.2
+  moveToStartPositionTime: 0.4
+  ease: 4
+  movementSpeed: 30
+  movementTime: 10
+  mouseRotationAmount: 3
+  rotationAmount: 90
+  minPosition: -15
+  maxPosition: 12
+  TiltSpeed: 0.2
+  zoomSmoothTime: 0.1
+  zoomAmount: 10
+  startingZoom: 120
+  minZoomLimit: 60
+  maxZoomLimit: 260
 --- !u!1001 &1092213234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,6 +663,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1400683961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400683963}
+  - component: {fileID: 1400683962}
+  m_Layer: 0
+  m_Name: Custom Mouse Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1400683962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400683961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996541f9fe3ed0d49a0f61f1ded2eae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseCursor: {fileID: 2800000, guid: dfb34e18c0a8f8b4da9ae6ce2b1c1a63, type: 3}
+--- !u!4 &1400683963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400683961}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.522692, y: -23.593678, z: 14.179287}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1532011263
 GameObject:
@@ -7867,7 +7941,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 0}
   shallowColor: {r: 0.8392157, g: 0.98039216, b: 0.9254902, a: 1}
-  deepColor: {r: 0.3782477, g: 0.4537794, b: 0.6037736, a: 0.7058824}
+  deepColor: {r: 0.3782481, g: 0.4537794, b: 0.6037736, a: 0.7058824}
   colorDepth: 0.16
   horizonColor: {r: 0.9339623, g: 0.86123925, b: 0.4713866, a: 1}
   horizonDistance: 1.1
@@ -7876,8 +7950,8 @@ MonoBehaviour:
   shoreStrength: 0
   shoreBlend: 0
   shoreDepth: 0
-  waveColor: {r: 0.35721475, g: 0.35721475, b: 0.35721475, a: 0}
-  underwaterColor: {r: 0.2521506, g: 0.34866893, b: 0.6320754, a: 0}
+  waveColor: {r: 0.3572151, g: 0.3572151, b: 0.3572151, a: 0}
+  underwaterColor: {r: 0.25215098, g: 0.3486693, b: 0.6320754, a: 0}
   underwaterColorStrength: 0
   underwaterRefractionStrength: 0.099
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -8037,6 +8111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1695628332}
+  - component: {fileID: 1695628333}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -8058,6 +8133,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1695628333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695628331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb75d188f3d91c649a2229bef9b06c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &2134827639
 Mesh:
   m_ObjectHideFlags: 0

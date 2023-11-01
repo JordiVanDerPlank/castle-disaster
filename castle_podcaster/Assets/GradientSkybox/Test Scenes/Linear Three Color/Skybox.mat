@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Skybox
+  m_Shader: {fileID: 4800000, guid: 109b5f6987709cf4aaa0449d802e92ea, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Exp: 1
+    m_Colors:
+    - _BottomColor: {r: 0.5308384, g: 0.6006435, b: 0.745283, a: 1}
+    - _MiddleColor: {r: 0.39404595, g: 0.7264151, b: 0.6466681, a: 1}
+    - _TopColor: {r: 1, g: 0.57678044, b: 0.06132078, a: 1}
+    - _Up: {r: 0, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

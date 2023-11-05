@@ -110,8 +110,8 @@ Material:
     - _WaterColorDeep: {r: 0.5943396, g: 0.520815, b: 0.5074315, a: 0.7058824}
     - _WaterColorHorizon: {r: 0.49127787, g: 0.9056604, b: 0.8890961, a: 1}
     - _WaterColorShallow: {r: 0.8392157, g: 0.98039216, b: 0.9254902, a: 1}
-    - _WaterColorUnderwater: {r: 0.25274602, g: 0.34926435, b: 0.6320754, a: 0}
-    - _WaveColor: {r: 0.35781017, g: 0.35781017, b: 0.35781017, a: 0}
+    - _WaterColorUnderwater: {r: 0.25270405, g: 0.3492224, b: 0.6320754, a: 0}
+    - _WaveColor: {r: 0.3577682, g: 0.3577682, b: 0.3577682, a: 0}
     - _WaveDirections: {r: 0, g: 0.64, b: 1, a: 0.33}
     - _WaveVisuals: {r: 0, g: 15, b: 1.38, a: 0}
   m_BuildTextureStacks: []

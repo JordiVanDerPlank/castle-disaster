@@ -3093,13 +3093,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 192709104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 839650b223e59e349bc0944bb6229a3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3794e8b93b609bc4ca7c64fcb939816e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
   minXRot: -85
-  maxXRot: -10
-  curXRot: -5
+  maxXRot: 25
+  curXRot: -50
   minZoom: 100
   maxZoom: 300
   zoomSpeed: 75
@@ -6103,9 +6103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2f052e1fd34f64d9224caf564bb6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 111296038279875020, guid: e263a671724442f4caf1ed74ceba7c07,
-    type: 3}
-  enemySpawnpoint: {fileID: 911469719}
 --- !u!1001 &454119288
 PrefabInstance:
   m_ObjectHideFlags: 0

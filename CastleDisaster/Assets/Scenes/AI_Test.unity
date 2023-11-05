@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 2657038558e8ea94990ac2de39fee8a3, type: 2}
   m_BuildHeightMesh: 0
@@ -7829,17 +7829,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2142575367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 839650b223e59e349bc0944bb6229a3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3794e8b93b609bc4ca7c64fcb939816e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
-  minXRot: -85
-  maxXRot: -10
-  curXRot: -5
-  minZoom: 100
-  maxZoom: 300
-  zoomSpeed: 75
-  rotateSpeed: 3
+  moveSpeed: 0
+  minXRot: 0
+  maxXRot: 0
+  curXRot: 0
+  minZoom: 0
+  maxZoom: 0
+  zoomSpeed: 0
+  rotateSpeed: 0
 --- !u!4 &2142575369
 Transform:
   m_ObjectHideFlags: 0

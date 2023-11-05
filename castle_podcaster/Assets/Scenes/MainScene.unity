@@ -297,10 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3238,7 +3238,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
+    m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -4214,10 +4214,10 @@ RectTransform:
   m_Father: {fileID: 597224133}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -272, y: 26}
-  m_SizeDelta: {x: 84.1905, y: 29.7446}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 93.726135, y: 45.87262}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183696657
 MonoBehaviour:
@@ -4441,10 +4441,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
+    m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -12694,7 +12694,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 0}
   shallowColor: {r: 0.8392157, g: 0.98039216, b: 0.9254902, a: 1}
-  deepColor: {r: 0.37823707, g: 0.4537794, b: 0.6037736, a: 0.7058824}
+  deepColor: {r: 0.37823653, g: 0.4537794, b: 0.6037736, a: 0.7058824}
   colorDepth: 0.16
   horizonColor: {r: 0.9339623, g: 0.86123925, b: 0.4713866, a: 1}
   horizonDistance: 1.1
@@ -12703,8 +12703,8 @@ MonoBehaviour:
   shoreStrength: 0
   shoreBlend: 0
   shoreDepth: 0
-  waveColor: {r: 0.35720408, g: 0.35720408, b: 0.35720408, a: 0}
-  underwaterColor: {r: 0.25213993, g: 0.34865826, b: 0.6320754, a: 0}
+  waveColor: {r: 0.35720354, g: 0.35720354, b: 0.35720354, a: 0}
+  underwaterColor: {r: 0.2521394, g: 0.34865773, b: 0.6320754, a: 0}
   underwaterColorStrength: 0
   underwaterRefractionStrength: 0.099
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -13383,10 +13383,10 @@ RectTransform:
   m_Father: {fileID: 597224133}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -272, y: 59}
-  m_SizeDelta: {x: 84.1905, y: 29.7446}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 93.21655, y: 113.01276}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067840794
 MonoBehaviour:

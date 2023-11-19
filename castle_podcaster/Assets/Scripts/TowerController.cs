@@ -44,9 +44,4 @@ public class TowerController : MonoBehaviour
         if (Vector3.Distance(transform.position, target.transform.position) > attackDistance)
             target = null;
     }
-
-    float GetRequiredShootForce()
-    {
-        return Vector3.Distance(transform.position, target.transform.position);
-    }
 }

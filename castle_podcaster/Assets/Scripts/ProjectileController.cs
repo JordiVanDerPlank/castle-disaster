@@ -16,8 +16,6 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.transform.root.gameObject.name);
-
         if (other.transform.root.gameObject == originGameObject || originGameObject == null)
             return;
 
@@ -32,7 +30,6 @@ public class ProjectileController : MonoBehaviour
 
         if (other.transform.root.gameObject.tag == "Unit")
         {
-            print("hit unit!");
             other.transform.root.GetComponent<UnitController>().TakeDamage(damage);
             Destroy(gameObject);
         }

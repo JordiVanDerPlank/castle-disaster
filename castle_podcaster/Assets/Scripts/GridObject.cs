@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GridObject : MonoBehaviour
 {
+    [SerializeField] bool isKingTower;
     [SerializeField] float startHealth, health;
 
     private void Start()
@@ -18,6 +19,11 @@ public class GridObject : MonoBehaviour
         if (health <= 0 )
         {
             Destroy(gameObject);
+
+
+            //king tower behaviour
+            if (isKingTower)
+                GameManager.Instance.SetGameOver();
         }
     }
 }

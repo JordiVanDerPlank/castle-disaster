@@ -20,30 +20,50 @@ public class UnitController : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
 
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform kingTower;
+    [SerializeField] GridObject kingTower;
+    [SerializeField] float distanceToTarget;
 
     private void Awake()
     {
-        kingTower = GameObject.Find("Tower_King").transform;
+        kingTower = GameObject.Find("Tower_King").GetComponent<GridObject>();
     }
 
     private void Update()
     {
-        agent.destination = kingTower.position;
-        //agent.SetDestination(kingTower.position);
-        //agent.Move(Vector3.zero);
-        return;
+        agent.destination = kingTower.transform.position;
+
         if (target == null)
         {
             FindTarget();
         }
 
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            target = kingTower;
+        }
+
+        distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+
         if (currentTime >= attackSpeed && target != null)
         {
-            //target.TakeDamage(attackDamage);
-            ProjectileController _newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<ProjectileController>();
-            //_newProjectile.SetProjectileData(attackDamage, gameObject, GetShootForce());
-            //_newProjectile.SetTargetPosition(target.transform.position);
+            if (Vector3.Distance(transform.position, target.transform.position) > attackDistance)
+            {
+                currentTime = 0;
+                return;
+            }
+
+            switch (enemyType)
+            {
+                case UnitType.swordsman:
+                    target.TakeDamage(attackDamage);
+                    break;
+                case UnitType.archer:
+                    ProjectileController _newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<ProjectileController>();
+                    _newProjectile.SetProjectileData(attackDamage, gameObject);
+                    _newProjectile.SetTarget(target.transform);
+                    break;
+            }
+            
             currentTime = 0;
         }
 
@@ -54,7 +74,6 @@ public class UnitController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        print("test");
         health -= damage;
         if (health <= 0)
         {
@@ -70,10 +89,5 @@ public class UnitController : MonoBehaviour
             return;
 
         target = buildings.OrderBy(building => Vector3.Distance(transform.position, building.transform.position)).First();
-    }
-
-    float GetShootForce()
-    {
-        return Vector3.Distance(transform.position, target.transform.position);
     }
 }

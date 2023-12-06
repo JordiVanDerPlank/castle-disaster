@@ -9,6 +9,9 @@ public class GridObject : MonoBehaviour
 
     private void Start()
     {
+        if (DebugController.Instance.useDebugValues)
+            startHealth = isKingTower ? DebugController.Instance.kingTowerHealth : DebugController.Instance.towerHealth;
+
         health = startHealth;
     }
 

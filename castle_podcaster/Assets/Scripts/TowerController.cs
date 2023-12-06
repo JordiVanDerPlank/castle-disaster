@@ -12,6 +12,16 @@ public class TowerController : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform projectileSpawnPosition;
 
+    private void Start()
+    {
+        if (DebugController.Instance.useDebugValues)
+        {
+            attackSpeed = DebugController.Instance.towerAttackSpeed;
+            attackDistance = DebugController.Instance.towerReach;
+            attackDamage = DebugController.Instance.towerDamage;
+        }
+    }
+
     private void Update()
     {
         if (target == null)

@@ -1922,6 +1922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 111296038279875020, guid: e263a671724442f4caf1ed74ceba7c07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1787247117792899763, guid: e263a671724442f4caf1ed74ceba7c07, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5204,6 +5208,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 2.5, z: 0.00000023841858}
+--- !u!1 &1351603444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351603445}
+  - component: {fileID: 1351603446}
+  m_Layer: 0
+  m_Name: DebugController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1351603445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351603444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1695628332}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351603446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351603444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1e9c0d8c3202a4b9fcdd9ed598159b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useDebugValues: 1
+  amountOfUnitsToSpawn: 10
+  kingTowerHealth: 5
+  towerHealth: 5
+  towerReach: 20
+  towerDamage: 3
+  towerAttackSpeed: 1
+  swordsmanHealth: 4
+  swordsmanDamage: 2
+  swordsmanRange: 7
+  swordsmanAttackSpeed: 2
+  archerHealth: 4
+  archerDamage: 2
+  archerRange: 15
+  archerAttackSpeed: 2
 --- !u!1 &1369777261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3543468694480916964, guid: f91026e506ef9114cb9c7307d18c8399, type: 3}
@@ -13281,7 +13343,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 0}
   shallowColor: {r: 0.8392157, g: 0.98039216, b: 0.9254902, a: 1}
-  deepColor: {r: 0.37818977, g: 0.4537794, b: 0.6037736, a: 0.7058824}
+  deepColor: {r: 0.3781885, g: 0.4537794, b: 0.6037736, a: 0.7058824}
   colorDepth: 0.16
   horizonColor: {r: 0.9339623, g: 0.86123925, b: 0.4713866, a: 1}
   horizonDistance: 1.1
@@ -13290,8 +13352,8 @@ MonoBehaviour:
   shoreStrength: 0
   shoreBlend: 0
   shoreDepth: 0
-  waveColor: {r: 0.35715678, g: 0.35715678, b: 0.35715678, a: 0}
-  underwaterColor: {r: 0.25209266, g: 0.34861097, b: 0.6320754, a: 0}
+  waveColor: {r: 0.3571555, g: 0.3571555, b: 0.3571555, a: 0}
+  underwaterColor: {r: 0.25209135, g: 0.3486097, b: 0.6320754, a: 0}
   underwaterColorStrength: 0
   underwaterRefractionStrength: 0.099
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -13474,6 +13536,7 @@ Transform:
   - {fileID: 1143421856}
   - {fileID: 1417652117}
   - {fileID: 1915335197}
+  - {fileID: 1351603445}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

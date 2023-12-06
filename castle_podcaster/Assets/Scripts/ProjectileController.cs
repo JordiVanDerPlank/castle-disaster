@@ -45,8 +45,6 @@ public class ProjectileController : MonoBehaviour
 
     private void Update()
     {
-        print("test");
-
         try
         {
             Vector3 direction = (target.position - transform.position).normalized;

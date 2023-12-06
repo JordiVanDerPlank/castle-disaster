@@ -8,6 +8,9 @@ public class EnemySpawnController : MonoBehaviour
     public void PressSpawnEnemiesButton(int amount)
     {
         amountToSpawn = amount;
+        if (DebugController.Instance.useDebugValues)
+            amountToSpawn = DebugController.Instance.amountOfUnitsToSpawn;
+
         StartCoroutine(SpawnEnemies());
     }
 

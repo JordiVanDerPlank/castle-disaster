@@ -62,11 +62,18 @@ public class UnitController : MonoBehaviour
     {
         if (isEnemyUnit)
         {
-            agent.destination = kingTower.transform.position;
-            
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (unitTarget != null)
             {
-                target = kingTower;
+                agent.destination = unitTarget.transform.position;
+            }
+            else
+            {
+                agent.destination = kingTower.transform.position;
+
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    target = kingTower;
+                }
             }
         }
 
@@ -90,7 +97,7 @@ public class UnitController : MonoBehaviour
 
         if (currentTime >= attackSpeed)
         {
-            if (target != null)
+            if (target != null && unitTarget == null)
             {
                 if (Vector3.Distance(transform.position, target.transform.position) > attackDistance)
                 {
@@ -115,6 +122,7 @@ public class UnitController : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, unitTarget.transform.position) > attackDistance)
                 {
+                    print("want to attack, but can't!");
                     currentTime = 0;
                     return;
                 }
@@ -122,7 +130,7 @@ public class UnitController : MonoBehaviour
                 switch (enemyType)
                 {
                     case UnitType.swordsman:
-                        unitTarget.TakeDamage(attackDamage);
+                        unitTarget.TakeDamage(attackDamage, this, null);
                         break;
                     case UnitType.archer:
                         ProjectileController _newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<ProjectileController>();
@@ -140,12 +148,31 @@ public class UnitController : MonoBehaviour
 
     [SerializeField] float health;
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, UnitController damagedByUnit, GridObject damagedByBuilding)
     {
         health -= damage;
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+
+        else
+        {
+            print("got hit");
+            if (enemyType == UnitType.swordsman)
+            {
+                if (damagedByBuilding != null)
+                {
+                    print("by building");
+                    target = damagedByBuilding;
+                }
+
+                else
+                {
+                    print("by unit");
+                    unitTarget = damagedByUnit;
+                }
+            }
         }
     }
 
@@ -169,7 +196,7 @@ public class UnitController : MonoBehaviour
                 return;
 
             unitTarget = _enemies.OrderBy(enemy => Vector3.Distance(transform.position, enemy.transform.position)).First();
-            if (Vector3.Distance(transform.position, unitTarget.transform.position) <= viewDistance)
+            if (Vector3.Distance(transform.position, unitTarget.transform.position) > viewDistance)
             {
                 unitTarget = null;
                 return;

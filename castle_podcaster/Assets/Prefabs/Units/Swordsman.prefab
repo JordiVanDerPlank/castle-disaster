@@ -48,7 +48,7 @@ MonoBehaviour:
   attackSpeed: 0
   attackDistance: 0
   attackDamage: 0
-  viewDistance: 25
+  viewDistance: 7
   target: {fileID: 0}
   unitTarget: {fileID: 0}
   projectilePrefab: {fileID: 0}

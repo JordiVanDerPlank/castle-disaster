@@ -30,7 +30,7 @@ public class ProjectileController : MonoBehaviour
 
         if (other.transform.root.gameObject.tag == "Unit")
         {
-            other.transform.root.GetComponent<UnitController>().TakeDamage(damage);
+            other.transform.root.GetComponent<UnitController>().TakeDamage(damage, null, originGameObject.GetComponent<GridObject>());
             Destroy(gameObject);
         }
     }
